@@ -439,7 +439,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-6xl mx-auto text-center"
+              className="text-center"
             >
               <motion.h2 
                 className="text-4xl md:text-5xl font-bold mb-4"
@@ -466,126 +466,75 @@ export default function Home() {
                 Here are some of my recent projects. Each project was built to solve a specific problem or explore new technologies.
               </motion.p>
               
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-10">
                 {[
                   {
-                    title: 'Project One',
-                    description: 'A modern web application built with Next.js and Tailwind CSS.',
-                    tags: ['React', 'Next.js', 'Tailwind'],
-                    link: '#',
-                    github: '#',
+                    id: 'scope-financial',
+                    title: 'Scope Financial',
+                    image: '/images/laptop-and-mobile.png',
                     gradient: 'from-blue-400 to-cyan-400'
                   },
                   {
-                    title: 'Project Two',
-                    description: 'A RESTful API service with Node.js and Express.',
-                    tags: ['Node.js', 'Express', 'MongoDB'],
-                    link: '#',
-                    github: '#',
+                    id: 'activity-tracker',
+                    title: 'Activity Tracker',
+                    image: '/images/activity-dashboard.png',
                     gradient: 'from-purple-400 to-pink-400'
                   },
                   {
+                    id: 'project-three',
                     title: 'Project Three',
-                    description: 'A responsive dashboard with real-time data visualization.',
-                    tags: ['React', 'D3.js', 'Firebase'],
-                    link: '#',
-                    github: '#',
+                    image: null,
                     gradient: 'from-green-400 to-emerald-400'
                   },
                   {
+                    id: 'project-four',
                     title: 'Project Four',
-                    description: 'An e-commerce platform with payment integration.',
-                    tags: ['Next.js', 'Stripe', 'PostgreSQL'],
-                    link: '#',
-                    github: '#',
+                    image: null,
                     gradient: 'from-orange-400 to-red-400'
                   }
                 ].map((project, index) => (
-                  <motion.div
+                  <motion.a
                     key={index}
+                    href={`/projects/${project.id}`}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 relative"
+                    whileHover={{ y: -10 }}
+                    className="group cursor-pointer"
                   >
-                    {/* Gradient overlay on hover */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/5 group-hover:to-cyan-500/5 transition-all duration-300 z-10 pointer-events-none"
-                    />
-                    
-                    <div className={`h-48 bg-gradient-to-r ${project.gradient} relative overflow-hidden`}>
-                      {/* Animated shine effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        initial={{ x: '-100%' }}
-                        whileHover={{ x: '100%' }}
-                        transition={{ duration: 0.6 }}
-                      />
+                    {/* Project Image */}
+                    <div className={`relative overflow-hidden rounded-2xl mb-8 aspect-[5/4] ${project.image ? 'bg-transparent p-4' : 'bg-gray-100 dark:bg-gray-800'}`}>
+                      {project.image ? (
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className={`w-full h-full bg-gradient-to-r ${project.gradient} transition-transform duration-500 group-hover:scale-105`} />
+                      )}
                       
-                      {/* Floating particles */}
-                      <motion.div
-                        className="absolute top-4 right-4 w-3 h-3 bg-white/40 rounded-full"
-                        animate={{ y: [0, -20, 0], opacity: [0.4, 0.8, 0.4] }}
-                        transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
-                      />
-                      <motion.div
-                        className="absolute bottom-8 left-8 w-2 h-2 bg-white/40 rounded-full"
-                        animate={{ y: [0, -15, 0], opacity: [0.4, 0.8, 0.4] }}
-                        transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.3 }}
-                      />
+                      {/* Hover overlay - only for gradient backgrounds */}
+                      {!project.image && (
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                      )}
                     </div>
                     
-                    <div className="p-6 relative z-20">
-                      <motion.h3 
-                        className="text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors"
-                        whileHover={{ x: 5 }}
-                      >
+                    {/* Project Title */}
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">
                         {project.title}
-                      </motion.h3>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, i) => (
-                          <motion.span
-                            key={i}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 + i * 0.1 }}
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            className="px-3 py-1 text-xs bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-full font-medium cursor-default"
-                          >
-                            {tag}
-                          </motion.span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex space-x-4">
-                        <motion.a
-                          href={project.link}
-                          whileHover={{ x: 5 }}
-                          className="text-blue-600 dark:text-cyan-400 hover:underline font-medium flex items-center gap-1"
-                        >
-                          View Live
-                          <motion.span
-                            animate={{ x: [0, 3, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
-                          >
-                            →
-                          </motion.span>
-                        </motion.a>
-                        <motion.a
-                          href={project.github}
-                          whileHover={{ scale: 1.05 }}
-                          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 flex items-center gap-1 font-medium"
-                        >
-                          <FiGithub className="text-lg" /> Code
-                        </motion.a>
-                      </div>
+                      </h3>
+                      <motion.span
+                        className="text-2xl text-gray-400 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors"
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        →
+                      </motion.span>
                     </div>
-                  </motion.div>
+                  </motion.a>
                 ))}
               </div>
               
