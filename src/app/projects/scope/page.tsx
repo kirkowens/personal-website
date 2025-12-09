@@ -154,11 +154,98 @@ export default function ScopeFinancialProject() {
             </div>
           </motion.div>
 
+          {/* Case Study Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="max-w-4xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">Case Study</h2>
+            
+            {/* Problem */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-cyan-400">The Problem</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                Managing personal finances can be overwhelming, especially when trying to understand cash flow patterns and make informed decisions about spending and saving. Most financial apps are either too complex with features users don't need, or too simple to provide meaningful insights.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                Users needed a clean, intuitive way to visualize their financial data, track spending trends, and project future cash flow without getting lost in complicated spreadsheets or cluttered interfaces.
+              </p>
+            </div>
+
+            {/* Solution */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-cyan-400">The Solution</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                Scope was designed to simplify financial tracking by focusing on what matters most: clear visualization of cash flow, spending patterns, and future projections. The interface prioritizes clarity and ease of use, making complex financial data accessible at a glance.
+              </p>
+              <ul className="space-y-3 text-gray-600 dark:text-gray-300 text-lg">
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span><strong>Dashboard Overview:</strong> A clean, card-based layout showing key metrics like current balance, monthly spending, and income at a glance</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span><strong>Cash Flow Visualization:</strong> Interactive charts that make it easy to understand spending trends and identify patterns</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span><strong>Projections:</strong> Forward-looking insights that help users plan for upcoming expenses and savings goals</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span><strong>Mobile-First Design:</strong> Fully responsive interface that works seamlessly across all devices</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Process */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-cyan-400">Design Process</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                The design process started with research into existing financial apps and user pain points. I created wireframes in Figma to explore different layout options, focusing on information hierarchy and visual clarity.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                Key design decisions included:
+              </p>
+              <ul className="space-y-3 text-gray-600 dark:text-gray-300 text-lg">
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span>Using a card-based layout to separate different types of information clearly</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span>Implementing a blue-to-cyan gradient for positive financial indicators and warm colors for alerts</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span>Creating custom chart visualizations that are both beautiful and functional</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 dark:text-cyan-400 mr-3">•</span>
+                  <span>Ensuring all interactive elements have clear hover states and feedback</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Results */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-cyan-400">Results & Learnings</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                This project taught me the importance of balancing visual appeal with functional clarity. Financial data can be intimidating, so making it approachable through thoughtful design was crucial.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                I learned how to organize complex information hierarchies, create meaningful data visualizations, and design interfaces that feel both modern and trustworthy. The project also reinforced the value of iterating on designs based on real-world usage patterns.
+              </p>
+            </div>
+          </motion.div>
+
           {/* Back to Projects */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
             className="text-center"
           >
             <Link 

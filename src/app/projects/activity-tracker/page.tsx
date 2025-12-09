@@ -132,11 +132,98 @@ export default function ActivityTrackerProject() {
             </div>
           </motion.div>
 
+          {/* Case Study Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="max-w-4xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">Case Study</h2>
+            
+            {/* Problem */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-purple-600 dark:text-pink-400">The Problem</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                Many people struggle to maintain consistent habits and track their daily activities effectively. Existing habit tracking apps often feel like chores themselves, with complicated interfaces and overwhelming features that discourage regular use.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                Users needed a simple, visual way to log activities, set achievable goals, and see their progress over time without feeling overwhelmed by data or complex tracking systems.
+              </p>
+            </div>
+
+            {/* Solution */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-purple-600 dark:text-pink-400">The Solution</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                Activity Tracker was designed with simplicity and motivation in mind. The interface focuses on quick logging and visual feedback, making it easy to build and maintain healthy habits without friction.
+              </p>
+              <ul className="space-y-3 text-gray-600 dark:text-gray-300 text-lg">
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span><strong>Calendar View:</strong> A clean, month-at-a-glance calendar that shows activity completion with visual indicators</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span><strong>Quick Add:</strong> Simple modal interface for logging activities without navigating away from the main view</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span><strong>Goal Setting:</strong> Intuitive goal creation with customizable targets and timeframes</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span><strong>Dashboard Overview:</strong> At-a-glance stats showing streaks, completion rates, and progress toward goals</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Process */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-purple-600 dark:text-pink-400">Design Process</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                I started by researching habit formation psychology and analyzing popular habit tracking apps to understand what works and what doesn't. The goal was to create an interface that encourages consistency without adding stress.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                Key design decisions included:
+              </p>
+              <ul className="space-y-3 text-gray-600 dark:text-gray-300 text-lg">
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span>Using a calendar as the primary interface since it's a familiar mental model for tracking time-based activities</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span>Implementing color-coded indicators to show completion status at a glance</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span>Creating a streamlined add activity flow that takes just seconds to complete</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-purple-600 dark:text-pink-400 mr-3">•</span>
+                  <span>Designing motivational elements like streak counters without making them feel punitive</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Results */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold mb-4 text-purple-600 dark:text-pink-400">Results & Learnings</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-4">
+                This project reinforced the importance of reducing friction in user interfaces, especially for apps that require daily engagement. Every extra tap or confusing element can be the difference between building a habit and abandoning the app.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                I learned how to design for motivation and positive reinforcement, balance simplicity with functionality, and create interfaces that feel rewarding to use. The project also taught me the value of visual feedback in keeping users engaged with their goals.
+              </p>
+            </div>
+          </motion.div>
+
           {/* Back to Projects */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
             className="text-center"
           >
             <Link 
