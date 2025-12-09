@@ -36,7 +36,7 @@ export default function ScopeFinancialProject() {
             {/* Left: Project Title */}
             <div>
               <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white">
-                Scope Financial
+                Scope
               </h1>
             </div>
 
@@ -69,7 +69,7 @@ export default function ScopeFinancialProject() {
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src="/images/laptop-and-mobile.png" 
-                  alt="Scope Financial"
+                  alt="Scope"
                   className="w-full"
                 />
               </div>
@@ -81,13 +81,13 @@ export default function ScopeFinancialProject() {
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                   Client
                 </p>
-                <p className="text-lg text-gray-900 dark:text-white">Personal Project</p>
+                <p className="text-lg text-gray-900 dark:text-white">Scope</p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                   Year
                 </p>
-                <p className="text-lg text-gray-900 dark:text-white">2023</p>
+                <p className="text-lg text-gray-900 dark:text-white">2023-2025</p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
@@ -114,7 +114,7 @@ export default function ScopeFinancialProject() {
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src="/images/laptop-dashboard.png" 
-                  alt="Scope Financial - Dashboard"
+                  alt="Scope - Dashboard"
                   className="w-full"
                 />
               </div>
@@ -125,7 +125,7 @@ export default function ScopeFinancialProject() {
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src="/images/laptop-cashflow-summary.png" 
-                  alt="Scope Financial - Cash Flow Summary"
+                  alt="Scope - Cash Flow Summary"
                   className="w-full"
                 />
               </div>
@@ -136,7 +136,7 @@ export default function ScopeFinancialProject() {
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src="/images/laptop-cashflow-trends.png" 
-                  alt="Scope Financial - Cash Flow Trends"
+                  alt="Scope - Cash Flow Trends"
                   className="w-full"
                 />
               </div>
@@ -147,7 +147,7 @@ export default function ScopeFinancialProject() {
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src="/images/laptop-cashflow-projections.png" 
-                  alt="Scope Financial - Cash Flow Projections"
+                  alt="Scope - Cash Flow Projections"
                   className="w-full"
                 />
               </div>

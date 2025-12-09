@@ -10,6 +10,8 @@ type Section = 'home' | 'about' | 'projects' | 'contact';
 export default function Home() {
   const [activeSection, setActiveSection] = useState<Section>('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [emailCopied, setEmailCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,7 +198,7 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="text-xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6 font-light"
               >
-                Software Developer | Problem Solver | Tech Enthusiast
+                Product Designer | UX/UI Thinker | Problem Solver
               </motion.h2>
 
               {/* Description */}
@@ -330,9 +332,9 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 }}
                   >
-                    I'm a passionate software developer with expertise in building modern web applications.
-                    With a strong foundation in computer science and years of hands-on experience, I love
-                    turning complex problems into simple, beautiful, and intuitive solutions.
+                    I'm a web designer with a passion for creating clean, modern, and intuitive digital experiences. I love working in Figma, exploring layout ideas, refining visual hierarchy, and turning vague concepts into designs that feel simple and beautiful.
+                    <br /><br />
+                    My background in finance and problem-solving helps me organize complex information into interfaces that actually make sense to real people.
                   </motion.p>
                   <motion.p 
                     className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-lg"
@@ -341,19 +343,22 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
                   >
-                    When I'm not coding, you can find me exploring new technologies, contributing to
-                    open-source projects, or enjoying outdoor activities. I'm always eager to learn and
-                    take on new challenges that push me out of my comfort zone.
+                    When I'm not designing, I enjoy learning new tools, improving my craft, and working on personal projects that challenge my creativity. I'm always excited to take on new ideas and figure things out along the way.
                   </motion.p>
                   
                   <div className="grid grid-cols-2 gap-3">
                     {[
+                      'Figma',
+                      'UI/UX design',
+                      'Wireframing & mockups',
+                      'Responsive design',
+                      'HTML & CSS',
                       'JavaScript/TypeScript',
-                      'React/Next.js',
-                      'Node.js',
-                      'Python',
-                      'AWS',
-                      'Docker'
+                      'React',
+                      'Next.js',
+                      'Basic Node.js',
+                      'Tailwind CSS'
+
                     ].map((skill, index) => (
                       <motion.div
                         key={skill}
@@ -383,21 +388,15 @@ export default function Home() {
                   transition={{ delay: 0.3, duration: 0.6 }}
                 >
                   <motion.div 
-                    className="w-full h-80 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl overflow-hidden relative"
+                    className="w-full h-80 rounded-2xl overflow-hidden relative"
                     whileHover={{ scale: 1.02, rotate: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/* Replace with your image */}
-                    <div className="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center relative overflow-hidden">
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20"
-                        animate={{
-                          backgroundPosition: ['0% 0%', '100% 100%'],
-                        }}
-                        transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
-                      />
-                      <span className="text-gray-400 relative z-10">Your Photo</span>
-                    </div>
+                    <img 
+                      src="/images/myphoto.png" 
+                      alt="Kirk Owens"
+                      className="w-full h-full object-cover scale-[1.3]"
+                    />
                   </motion.div>
                   
                   {/* Floating decorative elements */}
@@ -469,8 +468,8 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-10">
                 {[
                   {
-                    id: 'scope-financial',
-                    title: 'Scope Financial',
+                    id: 'scope',
+                    title: 'Scope',
                     image: '/images/laptop-and-mobile.png',
                     gradient: 'from-blue-400 to-cyan-400'
                   },
@@ -479,18 +478,6 @@ export default function Home() {
                     title: 'Activity Tracker',
                     image: '/images/activity-dashboard.png',
                     gradient: 'from-purple-400 to-pink-400'
-                  },
-                  {
-                    id: 'project-three',
-                    title: 'Project Three',
-                    image: null,
-                    gradient: 'from-green-400 to-emerald-400'
-                  },
-                  {
-                    id: 'project-four',
-                    title: 'Project Four',
-                    image: null,
-                    gradient: 'from-orange-400 to-red-400'
                   }
                 ].map((project, index) => (
                   <motion.a
@@ -537,25 +524,6 @@ export default function Home() {
                   </motion.a>
                 ))}
               </div>
-              
-              <motion.a
-                href="#"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block mt-12 px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 relative overflow-hidden group"
-              >
-                <span className="relative z-10">View All Projects</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-500/10"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
             </motion.div>
           </div>
         </section>
@@ -625,9 +593,7 @@ export default function Home() {
                   <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Contact Info</h3>
                   <div className="space-y-4">
                     {[
-                      { icon: FiMail, label: 'Email', value: 'your.email@example.com', href: 'mailto:your.email@example.com', delay: 0.3 },
-                      { icon: FiGithub, label: 'GitHub', value: 'github.com/yourusername', href: 'https://github.com/yourusername', delay: 0.4 },
-                      { icon: FiLinkedin, label: 'LinkedIn', value: 'linkedin.com/in/yourusername', href: 'https://linkedin.com/in/yourusername', delay: 0.5 }
+                      { icon: FiMail, label: 'Email', value: 'kirkaowens@gmail.com', href: 'mailto:kirkaowens@gmail.com', delay: 0.3 }
                     ].map((contact, index) => (
                       <motion.div
                         key={index}
@@ -636,6 +602,11 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ delay: contact.delay }}
                         whileHover={{ x: 10, scale: 1.02 }}
+                        onClick={() => {
+                          navigator.clipboard.writeText(contact.value);
+                          setEmailCopied(true);
+                          setTimeout(() => setEmailCopied(false), 2000);
+                        }}
                         className="flex items-center space-x-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer group"
                       >
                         <motion.div 
@@ -647,14 +618,12 @@ export default function Home() {
                         </motion.div>
                         <div>
                           <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{contact.label}</p>
-                          <a 
-                            href={contact.href} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors font-medium"
-                          >
+                          <p className="text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors font-medium">
                             {contact.value}
-                          </a>
+                            {emailCopied && (
+                              <span className="ml-2 text-green-600 dark:text-green-400 text-sm">✓ Copied!</span>
+                            )}
+                          </p>
                         </div>
                       </motion.div>
                     ))}
@@ -662,6 +631,37 @@ export default function Home() {
                 </motion.div>
                 
                 <motion.form 
+                  action="https://formspree.io/f/myzrdeav"
+                  method="POST"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setFormStatus('submitting');
+                    
+                    const form = e.currentTarget;
+                    const formData = new FormData(form);
+                    
+                    try {
+                      const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                          'Accept': 'application/json'
+                        }
+                      });
+                      
+                      if (response.ok) {
+                        setFormStatus('success');
+                        form.reset();
+                        setTimeout(() => setFormStatus('idle'), 5000);
+                      } else {
+                        setFormStatus('error');
+                        setTimeout(() => setFormStatus('idle'), 5000);
+                      }
+                    } catch (error) {
+                      setFormStatus('error');
+                      setTimeout(() => setFormStatus('idle'), 5000);
+                    }
+                  }}
                   className="space-y-4"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -680,6 +680,7 @@ export default function Home() {
                       type="text"
                       id="name"
                       name="name"
+                      required
                       className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all"
                       placeholder="Your name"
                     />
@@ -697,6 +698,7 @@ export default function Home() {
                       type="email"
                       id="email"
                       name="email"
+                      required
                       className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all"
                       placeholder="your.email@example.com"
                     />
@@ -714,6 +716,7 @@ export default function Home() {
                       id="message"
                       name="message"
                       rows={4}
+                      required
                       className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all resize-none"
                       placeholder="Your message..."
                     ></motion.textarea>
@@ -721,13 +724,14 @@ export default function Home() {
                   
                   <motion.button
                     type="submit"
+                    disabled={formStatus === 'submitting'}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.7 }}
-                    whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 px-6 rounded-xl font-medium relative overflow-hidden group"
+                    whileHover={{ scale: formStatus === 'submitting' ? 1 : 1.02, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
+                    whileTap={{ scale: formStatus === 'submitting' ? 1 : 0.98 }}
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 px-6 rounded-xl font-medium relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600"
@@ -736,15 +740,37 @@ export default function Home() {
                       transition={{ duration: 0.3 }}
                     />
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      Send Message
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        →
-                      </motion.span>
+                      {formStatus === 'submitting' ? 'Sending...' : formStatus === 'success' ? 'Sent!' : 'Send Message'}
+                      {formStatus === 'idle' && (
+                        <motion.span
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      )}
                     </span>
                   </motion.button>
+                  
+                  {/* Status Messages */}
+                  {formStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-green-600 dark:text-green-400 text-center font-medium"
+                    >
+                      ✓ Message sent successfully!
+                    </motion.div>
+                  )}
+                  {formStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-600 dark:text-red-400 text-center font-medium"
+                    >
+                      ✗ Something went wrong. Please try again.
+                    </motion.div>
+                  )}
                 </motion.form>
               </div>
             </motion.div>
@@ -755,25 +781,6 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800 py-8">
         <div className="container mx-auto px-6 text-center">
-          <div className="flex justify-center space-x-6 mb-6">
-            {[
-              { icon: <FiGithub />, url: 'https://github.com/yourusername' },
-              { icon: <FiLinkedin />, url: 'https://linkedin.com/in/yourusername' },
-              { icon: <FiTwitter />, url: 'https://twitter.com/yourusername' },
-              { icon: <FiMail />, url: 'mailto:your.email@example.com' },
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-cyan-400 transition-all duration-300"
-                whileHover={{ y: -3 }}
-              >
-                {social.icon}
-              </motion.a>
-            ))}
-          </div>
           <p className="text-gray-500 dark:text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} Kirk Owens. All rights reserved.
           </p>

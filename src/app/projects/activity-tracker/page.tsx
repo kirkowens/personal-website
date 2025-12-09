@@ -120,24 +120,14 @@ export default function ActivityTrackerProject() {
               </div>
             </div>
 
-            {/* Image 2 - Placeholder */}
+            {/* Image 2 */}
             <div>
-              <div className="rounded-2xl overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/3] flex items-center justify-center">
-                <p className="text-gray-400 dark:text-gray-600">Image 2</p>
-              </div>
-            </div>
-
-            {/* Image 3 - Placeholder */}
-            <div>
-              <div className="rounded-2xl overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/3] flex items-center justify-center">
-                <p className="text-gray-400 dark:text-gray-600">Image 3</p>
-              </div>
-            </div>
-
-            {/* Image 4 - Placeholder */}
-            <div>
-              <div className="rounded-2xl overflow-hidden bg-gray-200 dark:bg-gray-800 aspect-[4/3] flex items-center justify-center">
-                <p className="text-gray-400 dark:text-gray-600">Image 4</p>
+              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+                <img 
+                  src="/images/activity-goal.png" 
+                  alt="Activity Tracker - Goal"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </motion.div>
