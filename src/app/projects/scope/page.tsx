@@ -87,7 +87,7 @@ export default function ScopeFinancialProject() {
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                   Year
                 </p>
-                <p className="text-lg text-gray-900 dark:text-white">2023-2025</p>
+                <p className="text-lg text-gray-900 dark:text-white">2020-2025</p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
